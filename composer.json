@@ -1,17 +1,16 @@
 {
-    "name": "league/:package_name",
-    "description": ":package_description",
+    "name": "swader/diffbot_client",
+    "description": "A PHP wrapper for using Diffbot's API",
     "keywords": [
-        "league",
-        "package"
+        "diffbot", "api", "wrapper", "client"
     ],
-    "homepage": "https://github.com/php-loep/:package_name",
+    "homepage": "https://github.com/swader/diffbot_client",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author_email@example.com",
-            "homepage": "http://author-website.example.com",
+            "name": "Bruno Skvorc",
+            "email": "bruno@skvorc.me",
+            "homepage": "http://bitfalls.com",
             "role": "Developer"
         }
     ],
@@ -23,12 +22,12 @@
     },
     "autoload": {
         "psr-4": {
-            "League\\Skeleton\\": "src"
+            "Swader\\Diffbot\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "League\\Skeleton\\Test\\": "tests"
+            "Swader\\Diffbot\\Test\\": "tests"
         }
     },
     "extra": {

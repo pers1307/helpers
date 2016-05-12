@@ -1,23 +1,23 @@
 <?php
 
-namespace League\Skeleton;
+namespace Swader\Diffbot;
 
 class SkeletonClass
 {
 
     /**
-     * Create a new Skeleton Instance
+     * Создаём новый экземпляр шаблонного приложения
      */
     public function __construct()
     {
     }
 
     /**
-     * Friendly welcome
+     * Дружелюбное приветствие
      *
-     * @param string $phrase Phrase to return
+     * @param string $phrase Возвращаемая фраза
      *
-     * @return string Returns the phrase passed in
+     * @return string Возвращает переданную фразу
      */
     public function echoPhrase($phrase)
     {
