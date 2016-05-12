@@ -1,17 +1,17 @@
 {
     "name": "pers1307/helpers",
-    "description": "A PHP wrapper for using Diffbot's API",
+    "description": "Helpers for Publisher 6.0",
     "keywords": [
-        "diffbot", "api", "wrapper", "client"
+        "helpers", "Publisher"
     ],
     "homepage": "https://github.com/pers1307/helpers",
     "license": "MIT",
     "authors": [
         {
-            "name": "Bruno Skvorc",
-            "email": "bruno@skvorc.me",
-            "homepage": "http://bitfalls.com",
-            "role": "Developer"
+            "name": "Yirii Pereskokov",
+            "email": "pers1307@mail.ru",
+            "homepage": "https://github.com/pers1307/",
+            "role": "PHP developer"
         }
     ],
     "require": {
@@ -22,18 +22,17 @@
     },
     "autoload": {
         "psr-4": {
-            "Swader\\Diffbot\\": "src"
+            "pers1307\\helpers\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Swader\\Diffbot\\Test\\": "tests"
+            "pers1307\\helpers\\Test\\": "tests"
         }
     },
     "extra": {
         "branch-alias": {
-            //"stable": "1.0.0"
-            "dev": "0.9-dev"
+            "dev": "1.0-dev"
         }
     }
 }
