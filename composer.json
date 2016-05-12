@@ -32,8 +32,8 @@
     },
     "extra": {
         "branch-alias": {
-            "stable": "1.0.0"
-            //"dev": "0.9-dev"
+            //"stable": "1.0.0"
+            "dev": "0.9-dev"
         }
     }
 }
