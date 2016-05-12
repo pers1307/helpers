@@ -1,46 +1,92 @@
 # Publisher helpers
 
-[![Latest Version](1.0)](https://github.com/thephpleague/skeleton/releases)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Build Status](https://img.shields.io/travis/thephpleague/skeleton/master.svg?style=flat-square)](https://travis-ci.org/thephpleague/skeleton)
-[![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/thephpleague/skeleton.svg?style=flat-square)](https://scrutinizer-ci.com/g/thephpleague/skeleton/code-structure)
-[![Quality Score](https://img.shields.io/scrutinizer/g/thephpleague/skeleton.svg?style=flat-square)](https://scrutinizer-ci.com/g/thephpleague/skeleton)
-[![Total Downloads](https://img.shields.io/packagist/dt/league/skeleton.svg?style=flat-square)](https://packagist.org/packages/league/skeleton)
 
-**Note:** Replace `skeleton` with the correct package name in the above URLs, then delete this line.
-
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what
-PSRs you support to avoid any confusion with users and contributors.
+Кароч, это набор набор хэлперов для Publisher'а.
+Помогает упростить работу во view.
 
 ## Install
 
-Via Composer
+Используй composer и все.
 
 ``` bash
 $ php composer.phar require --prefer-dist pers1307/helpers "dev-master"
 ```
 
-## Usage
+## Капитан, что мне делать с этим?
+
+StringCutHelper - класс режет строку до указанного размера.
+Причем, разрежет по целым словам. Без половинчатых слов.
 
 ``` php
-$skeleton = new League\Skeleton();
-echo $skeleton->echoPhrase('Hello, League!');
+use pers1307\helpers\StringCutHelper;
+
+$title = 'Hello yellow';
+$stringCutTitle = new StringCutHelper();
+$stringCutTitle->setMaxLenght(100);
+$stringCutTitle->setSeparator('');
+$title = $stringCutTitle->cutString($title);
 ```
 
-## Testing
+RowHelper - класс, который поможет тебе, вывести элементы построчно.
+И конечно, правильно вписать все это в верстку
 
-``` bash
-$ phpunit
+``` html
+<? use pers1307\helpers\RowHelper; ?>
+
+<div class="wrap">
+    <? $helper = new RowHelper(); ?>
+    <? $helper->beforeCycle('<div>', '</div>', 3); ?>
+
+    <? foreach($articles as $item): ?>
+        <?
+        $imageUrl = MSFiles::getImageUrl($item['img'], 'min');
+        $title = $item['name'];
+        $url = $model->getArticleLink($item['id']);
+
+        if (empty($imageUrl)) {
+            $imageUrl = '/DESIGN/SITE/images/no-image/no-image_160_160.png';
+        }
+        $htmlItem = "
+            <a href='$url'>
+                <div><img src='$imageUrl' alt='картинка подраздела $title'/></div>
+                <span>$title</span>
+            </a>
+        ";
+
+        if (empty($title)) {
+            continue;
+        }
+
+        $return = $helper->inCycle($htmlItem);
+
+        if ($return === 'continue') {
+            continue;
+        }
+        ?>
+    <? endforeach; ?>
+
+    <? $helper->afterCycle(); ?>
+</div>
 ```
 
-## Contributing
+ColumsHelper - класс, который разобъет передаваемы items на колонки,
+горизонтально или вертикально (ну тут пока запара)и вернет эти колонки как массивы,
+оч удобно, trust me.
 
-Please see [CONTRIBUTING](https://github.com/thephpleague/:package_name/blob/master/CONTRIBUTING.md) for details.
+``` php
+use pers1307\helpers\ColumsHelper;
+
+$tools = $query->getItems();
+
+$columsHelper = new ColumsHelper();
+$columsHelper->setColumns(4);
+$tools = $columsHelper->horizontal($tools);
+```
 
 ## Credits
 
-- [:author_name](https://github.com/:author_username)
-- [All Contributors](https://github.com/thephpleague/:package_name/contributors)
+- [Pereskokov Yurii (pers1307)](https://github.com/pers1307)
 
 ## License
 
