@@ -29,5 +29,10 @@
         "psr-4": {
             "Swader\\Diffbot\\Test\\": "tests"
         }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev": "0.9"
+        }
     }
 }
