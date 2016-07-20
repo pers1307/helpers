@@ -75,13 +75,25 @@ ColumsHelper - класс, который разобъет передаваем�
 оч удобно, trust me.
 
 ``` php
-use pers1307\helpers\ColumsHelper;
+use pers1307\helpers\ColumnsHelper;
 
 $tools = $query->getItems();
 
-$columsHelper = new ColumsHelper();
-$columsHelper->setColumns(4);
-$tools = $columsHelper->horizontal($tools);
+$columnsHelper = new ColumnsHelper();
+$columnsHelper->setColumns(4);
+$tools = $columnsHelper->horizontal($tools);
+```
+
+Пример для таблицы
+
+``` php
+use pers1307\helpers\ColumnsHelper;
+
+$tools = $query->getItems();
+
+$columnsHelper = new ColumnsHelper();
+$columnsHelper->setColumns(4);
+$certificates = $columnsHelper->horizontalForTable($certificates);
 ```
 
 ## Credits
