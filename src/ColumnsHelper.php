@@ -4,8 +4,8 @@
  * Класс помогает распределить элементы по колонкам
  *
  * @author      Pereskokov Yurii
- * @version     0.9.2
- * @copyright   2016 Pereskokov Yurii
+ * @version     1.0
+ * @copyright   2017 Pereskokov Yurii
  * @license     Mediasite LLC
  * @link        http://www.mediasite.ru/
  */
@@ -18,8 +18,9 @@ class ColumnsHelper
     private $columns;
 
     /**
-     * @param int $columns
      * Установка необходимого количества колонок, на которое потом пройдет распределение
+     *
+     * @param int $columns
      */
     public function setColumns($columns)
     {
@@ -27,9 +28,10 @@ class ColumnsHelper
     }
 
     /**
-     * @param array $items
      * Распределение элементов по колонкам в горизонтальном порядке
      * Элемент массива является колонкой
+     *
+     * @param array $items
      *
      * @return array
      */
@@ -59,9 +61,10 @@ class ColumnsHelper
     }
 
     /**
-     * @param array $items
      * Распределение элементов по колонкам в горизонтальном порядке
      * Элемент массива является строкой
+     *
+     * @param array $items
      *
      * @return array
      */
@@ -97,30 +100,29 @@ class ColumnsHelper
 
     /**
      * Распределение элементов по колонкам в вертикальном порядке (пока не реализовано)
+     *
      * @param array $items
+     *
      * @return array
      */
     public function upright($items)
     {
+        $result = [];
 
-        /*
-        if ($countElementInColon < 1) {
+        $index = 0;
 
-        } elseif ($countElementInColon > 1 && $countElementInColon) {
+        foreach ($items as $item) {
 
+            $result[$index][] = $item;
+
+            ++$index;
+
+            if ($index > $this->columns - 1) {
+
+                $index = 0;
+            }
         }
-        */
 
-        /*
-        $stringCut = new StringCutHelper();
-        $stringCut->setMaxLenght(80);
-
-        foreach ($links as $key => $link) {
-            $result = $stringCut->cutString($link['title']);
-            $links[$key]['title'] = $result;
-        }
-        */
-
-        return [];
+        return $result;
     }
 }

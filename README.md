@@ -71,7 +71,7 @@ RowHelper - класс, который поможет тебе, вывести �
 ```
 
 ColumsHelper - класс, который разобъет передаваемы items на колонки,
-горизонтально или вертикально (ну тут пока запара)и вернет эти колонки как массивы,
+горизонтально или вертикально и вернет эти колонки как массивы,
 оч удобно, trust me.
 
 ``` php
@@ -94,6 +94,18 @@ $tools = $query->getItems();
 $columnsHelper = new ColumnsHelper();
 $columnsHelper->setColumns(4);
 $certificates = $columnsHelper->horizontalForTable($certificates);
+```
+
+Пример для разбиения по колонкам
+
+``` php
+use pers1307\helpers\ColumnsHelper;
+
+$tools = $query->getItems();
+
+$columnsHelper = new ColumnsHelper();
+$columnsHelper->setColumns(4);
+$certificates = $columnsHelper->upright($certificates);
 ```
 
 ## Credits
